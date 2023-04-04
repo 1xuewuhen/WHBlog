@@ -4,10 +4,13 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.xwh.whblogcommon.enums.AppHttpCodeEnum;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.HashMap;
 
 
+
+@Schema(name = "R",title = "统一返回值")
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 public class R extends HashMap<String, Object> {
     public static R ok() {
