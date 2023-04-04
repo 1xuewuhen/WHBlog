@@ -2,6 +2,9 @@ package com.xwh.service;
 
 import com.xwh.entity.ArticleEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xwh.whblogcommon.vo.ArticleEntityVo;
+
+import java.util.List;
 
 /**
 * @author 陈方银
@@ -10,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ArticleEntityService extends IService<ArticleEntity> {
 
+    List<ArticleEntityVo> hotArticleList();
 }
