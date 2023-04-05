@@ -2,7 +2,9 @@ package com.xwh.service;
 
 import com.xwh.entity.ArticleEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xwh.whblogcommon.vo.ArticleDetailVo;
 import com.xwh.whblogcommon.vo.ArticleEntityVo;
+import com.xwh.whblogcommon.vo.PageVo;
 
 import java.util.List;
 
@@ -14,4 +16,8 @@ import java.util.List;
 public interface ArticleEntityService extends IService<ArticleEntity> {
 
     List<ArticleEntityVo> hotArticleList();
+
+    PageVo articleList(Integer pageNum, Integer pageSize, Long categoryId);
+
+    ArticleDetailVo getArticleDetail(Long id);
 }

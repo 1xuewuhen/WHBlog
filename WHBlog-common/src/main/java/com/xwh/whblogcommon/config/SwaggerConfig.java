@@ -1,4 +1,4 @@
-package com.xwh.config;
+package com.xwh.whblogcommon.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

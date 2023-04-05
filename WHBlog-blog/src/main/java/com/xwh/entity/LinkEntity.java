@@ -4,60 +4,68 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
 import lombok.Data;
 
 /**
- * 分类表
- * @TableName wh_category
+ * 友链
+ *
+ * @TableName wh_link
  */
-@TableName(value ="wh_category")
+@TableName(value = "wh_link")
 @Data
-public class CategoryEntity implements Serializable {
+public class LinkEntity implements Serializable {
     /**
-     * 
+     *
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
-     * 分类名
+     *
      */
     private String name;
 
     /**
-     * 父分类id，如果没有父分类为-1
+     *
      */
-    private Long pid;
+    private String logo;
 
     /**
-     * 描述
+     *
      */
     private String description;
 
     /**
-     * 状态0:正常,1禁用
+     * 网站地址
+     */
+    private String address;
+
+    /**
+     * 审核状态 (0代表审核通过，1代表审核未通过，2代表未审核)
      */
     private String status;
 
     /**
-     * 
+     *
      */
     private Long createBy;
 
     /**
-     * 
+     *
      */
     private LocalDateTime createTime;
 
     /**
-     * 
+     *
      */
     private Long updateBy;
 
     /**
-     * 
+     *
      */
     private LocalDateTime updateTime;
 

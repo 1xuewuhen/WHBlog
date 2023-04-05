@@ -1,18 +1,22 @@
 package com.xwh.whblogcommon.utils;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.TypeReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.xwh.whblogcommon.enums.AppHttpCodeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.util.HashMap;
 
-@Data
+
+//@Data
 @Schema(name = "R", title = "统一返回值")
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class R<T> {
+//@JsonInclude(JsonInclude.Include.NON_NULL)
+public class R extends HashMap<String, Object> {
 
 
-    @Schema(title = "状态码")
+/*    @Schema(title = "状态码")
     private Integer code;
     @Schema(title = "消息")
     private String msg;
@@ -58,9 +62,9 @@ public class R<T> {
         R<V> r = new R<>(code, msg);
         r.data = data;
         return r;
-    }
+    }*/
 
-   /* public static R ok() {
+    public static R ok() {
         R r = new R();
         r.put("code", AppHttpCodeEnum.SUCCESS.getCode());
         r.put("msg", AppHttpCodeEnum.SUCCESS.getMsg());
@@ -118,5 +122,5 @@ public class R<T> {
 
     public <T> T getData(String sign, TypeReference<T> typeReference) {
         return JSON.parseObject(JSON.toJSONString(this.get(sign)), typeReference);
-    }*/
+    }
 }

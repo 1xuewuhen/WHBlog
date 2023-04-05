@@ -2,6 +2,9 @@ package com.xwh.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xwh.entity.CategoryEntity;
+import com.xwh.whblogcommon.vo.CategoryVo;
+
+import java.util.List;
 
 /**
 * @author 陈方银
@@ -10,4 +13,5 @@ import com.xwh.entity.CategoryEntity;
 */
 public interface CategoryEntityService extends IService<CategoryEntity> {
 
+    List<CategoryVo> getCategoryList();
 }

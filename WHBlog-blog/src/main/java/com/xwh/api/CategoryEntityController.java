@@ -1,11 +1,9 @@
 package com.xwh.api;
 
-
-import com.xwh.service.ArticleEntityService;
+import com.xwh.entity.CategoryEntity;
+import com.xwh.service.CategoryEntityService;
 import com.xwh.whblogcommon.utils.R;
-import com.xwh.whblogcommon.vo.ArticleEntityVo;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,24 +13,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @author 陈方银
+ * @date 2023/4/5
+ * @since 1.0
+ */
 
-@Tag(name = "article 模块", description = "article API")
+
+@Tag(name = "Category",description = "分类模块")
 @RestController
-@RequestMapping("/blog/article")
-public class ArticleController {
+@RequestMapping("/blog/category")
+public class CategoryEntityController {
 
     @Autowired
-    private ArticleEntityService articleEntityService;
+    private CategoryEntityService categoryEntityService;
 
     @Operation(summary = "查询热点文章", description = "返回热点文章集合"
 //            ,parameters = {@Parameter()}
     )
     @ApiResponse(responseCode = "2xx", description = "文章实体对象")
-    @GetMapping("/hotArticleList")
-    public R<List<ArticleEntityVo>> hotArticleList() {
-        List<ArticleEntityVo> data = articleEntityService.hotArticleList();
-        R<List<ArticleEntityVo>> ok = R.ok(data);
-        System.out.println(ok);
-        return ok;
+    @GetMapping("/getCategoryList")
+    public R getCategoryList(){
+        return R.ok().put(categoryEntityService.getCategoryList());
     }
+
 }
